@@ -47,7 +47,7 @@ pipeline {
                         }
                     }
                     echo "${apiList}"
-                    writeFile file: 'api-list', text: ${apiList}
+                    writeFile file: 'api-list', text: apiList
                 }
             }
         }
