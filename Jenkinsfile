@@ -1,4 +1,4 @@
-properties([
+/*properties([
     parameters([
         [$class: 'ChoiceParameter',
             choiceType: 'PT_SINGLE_SELECT',
@@ -26,7 +26,7 @@ properties([
                 ]]]
     ])
 ])
-
+*/
 pipeline {
     agent any
     stages{
@@ -47,6 +47,7 @@ pipeline {
                         }
                     }
                     echo "${apiList}"
+                    writeFile file: 'api-list', text: ${apiList}
                 }
             }
         }
