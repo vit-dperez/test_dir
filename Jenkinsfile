@@ -19,7 +19,7 @@ properties([
                             apiList.add(f.name)
                         }
                     }
-                    return apiList
+                    return $apiList
                     """
                 ]]]
     ])
