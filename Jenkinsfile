@@ -3,8 +3,22 @@ pipeline {
     stages{
         stage('Get Apis'){
             steps{
-                //git changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/vit-dperez/test_dir.git'
                 git url: 'https://github.com/vit-dperez/test_dir.git'
+            }
+        }
+        stage('Populate parameters'){
+            steps{
+                script{
+                    def apiList = []
+                    def files = findFiles()
+
+                    files.each{ f ->
+                        if(f.directory){
+                            apiList.add(f.name)
+                        }
+                    }
+                    echo "${apiList}"
+                }
             }
         }
     }
