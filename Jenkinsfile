@@ -11,6 +11,7 @@ properties([
                 fallbackScript: [classpath: [], sandbox: false, script: 'return ["ERROR"]'],
                 script: [classpath: [], sandbox: false, 
                     script: """
+                        git url: 'https://github.com/vit-dperez/test_dir.git'
                         def apiList = []
                         def files = findFiles()
 
