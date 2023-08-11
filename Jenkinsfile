@@ -51,5 +51,10 @@ pipeline {
                 }
             }
         }
+        stage('Archive the file'){
+            steps{
+                archiveArtifacts artifacts: 'api-list', followSymlinks: false
+            }
+        }
     }
 }
