@@ -11,7 +11,7 @@ properties([
                 fallbackScript: [classpath: [], sandbox: false, script: 'return ["ERROR"]'],
                 script: [classpath: [], sandbox: false, 
                     script: """
-                        def fileContents = readFile("/var/lib/jenkins/job/sandbox/job/master%20job/job/feature%252Factive-choice-implementation/builds/28/archive/api-list").readlines()\nreturn fileContents
+def fileContents = readFile("/var/lib/jenkins/job/sandbox/job/master%20job/job/feature%252Factive-choice-implementation/builds/28/archive/api-list").readlines()\nreturn fileContents
                     """
                 ]]]
     ])
