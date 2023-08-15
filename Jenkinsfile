@@ -11,7 +11,7 @@ properties([
                 fallbackScript: [classpath: [], sandbox: false, script: 'return ["ERROR"]'],
                 script: [classpath: [], sandbox: false, 
                     script: """
-                        def fileContents = readFile("/var/lib/jenkins/jobs/sandbox/jobs/master job/branches/feature-acti.auurjo.plementation/builds/28/archive/api-list")\nreturn fileContents
+                        def fileContents = readFile("/var/lib/jenkins/jobs/sandbox/jobs/master job/branches/feature-acti.auurjo.plementation/builds/28/archive/api-list").readlines()\nreturn fileContents
                     """
                 ]]]
     ])
