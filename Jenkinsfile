@@ -11,7 +11,16 @@ properties([
                 fallbackScript: [classpath: [], sandbox: false, script: 'return ["ERROR"]'],
                 script: [classpath: [], sandbox: false, 
                     script: """
-                        def fileContents = readFile("./api-list")\nreturn fileContents
+                        import groovy.io.FileType
+
+def list = []
+
+def dir = new File("./api-test")
+dir.eachFileRecurse (FileType.FILES) { file ->
+  list.add(file.getName())
+}
+
+return list
                     """
                 ]]]
     ])
@@ -34,11 +43,11 @@ pipeline {
                     files.each{ f ->
                         if(f.directory){
                             apiList.add(f.name)
-                            writeFile file: 'api-list', text: "${f.name}\n"
+                            //writeFile file: 'api-list', text: "${f.name}\n"
                         }
                     }
                     echo "${apiList}"
-                   // writeFile file: 'api-list', text: "${apiList}"
+                    writeFile file: 'api-list', text: "${apiList}"
                 }
             }
         }
