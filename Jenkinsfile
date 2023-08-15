@@ -34,7 +34,7 @@ pipeline {
                     files.each{ f ->
                         if(f.directory){
                             apiList.add(f.name)
-                            writeFile file: 'api-list', text: "${f.name}"
+                            sh: 'echo "${f.name}" >> api-list'
                         }
                     }
                     echo "${apiList}"
