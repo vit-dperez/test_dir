@@ -11,7 +11,7 @@ properties([
                 fallbackScript: [classpath: [], sandbox: false, script: 'return ["ERROR"]'],
                 script: [classpath: [], sandbox: false, 
                     script: """
-                        def PREV_BUILD = ${BUILD_NUMBER} - 1
+                        def PREV_BUILD = ${BUILD_NUMBER}.toInteger() - 1\n
                         def fileContents = readFile("/var/lib/jenkins/jobs/sandbox/jobs/master job/branches/feature-acti.auurjo.plementation/builds/$PREV_BUILD/archive/api-list")\nreturn fileContents
                     """
                 ]]]
