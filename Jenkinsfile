@@ -12,7 +12,7 @@ properties([
                 script: [classpath: [], sandbox: false, 
                     script: """
                         def PREV_BUILD = ${BUILD_NUMBER} - 1
-                        def fileContents = readFile("/var/lib/jenkins/jobs/sandbox/jobs/master job/branches/feature-acti.auurjo.plementation/builds/${PREV_BUILD}/archive/api-list")\nreturn fileContents
+                        def fileContents = readFile("/var/lib/jenkins/jobs/sandbox/jobs/master job/branches/feature-acti.auurjo.plementation/builds/$PREV_BUILD/archive/api-list")\nreturn fileContents
                     """
                 ]]]
     ])
