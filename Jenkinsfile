@@ -11,16 +11,8 @@ properties([
                 fallbackScript: [classpath: [], sandbox: false, script: 'return ["ERROR"]'],
                 script: [classpath: [], sandbox: false, 
                     script: """
-                        import groovy.io.FileType
-
-def list = []
-
-def dir = new File("./api-test")
-dir.eachFileRecurse (FileType.FILES) { file ->
-  list.add(file.getName())
-}
-
-return list
+                        def PREV_BUILD = ${BUILD_NUMBER} - 1
+                        def fileContents = readFile("/var/lib/jenkins/jobs/sandbox/jobs/master job/branches/feature-acti.auurjo.plementation/builds/${PREV_BUILD}/archive/api-list")\nreturn fileContents
                     """
                 ]]]
     ])
@@ -43,10 +35,10 @@ pipeline {
                     files.each{ f ->
                         if(f.directory){
                             apiList.add(f.name)
-                            //writeFile file: 'api-list', text: "${f.name}\n"
+                            //writeFile file: 'api-list', text: "${f.name}"
                         }
                     }
-                    echo "${apiList}"
+                    // echo "${apiList}"
                     writeFile file: 'api-list', text: "${apiList}"
                 }
             }
