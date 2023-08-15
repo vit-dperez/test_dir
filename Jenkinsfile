@@ -11,7 +11,7 @@ properties([
                 fallbackScript: [classpath: [], sandbox: false, script: 'return ["ERROR"]'],
                 script: [classpath: [], sandbox: false, 
                     script: """
-                        def fileContents = new File("./api-list").readLines()\nreturn fileContents
+                        def fileContents = readFile("./api-list")\nreturn fileContents
                     """
                 ]]]
     ])
