@@ -24,7 +24,7 @@ pipeline {
                         parameters({
                             editableChoice(
                                 name: 'APIs',
-                                choices: ${apiList}
+                                choices: "${apiList}",
                             )
                         })
                     ])
