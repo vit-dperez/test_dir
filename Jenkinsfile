@@ -19,10 +19,8 @@ pipeline {
                         }
                     }
                     // echo "${apiList}"
-                    parameters: [editableChoice(
-                        name: 'APIs',
-                        choices: apiList,
-                    )]
+                    parameters: [editableChoice(name: 'APIs', choices: apiList,)]
+                    echo "${apiList}"
                 }
             }
         }
