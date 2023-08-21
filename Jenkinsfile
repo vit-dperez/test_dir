@@ -19,15 +19,10 @@ pipeline {
                         }
                     }
                     // echo "${apiList}"
-                    writeFile file: 'api-list', text: "${apiList}"
-                    properties([
-                        parameters({
-                            editableChoice(
-                                name: 'APIs',
-                                choices: "${apiList}",
-                            )
-                        })
-                    ])
+                    parameters: [editableChoice(
+                        name: 'APIs',
+                        choices: ${apiList},
+                    )]
                 }
             }
         }
