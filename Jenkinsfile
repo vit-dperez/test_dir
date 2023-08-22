@@ -21,8 +21,7 @@ pipeline {
                         }
                     }
                     //echo "${apiList}"
-                    env.API = input message: 'Select the APIs', ok: 'Select', parameters: [choiceParam(choices: apiList, name: 'API')]
-                    echo "API: ${env.API}"
+                    env.API = input message: 'Select the APIs', ok: 'Select', parameters: [multiselect(choices: apiList, name: 'API')]
                 }
             }
         }
