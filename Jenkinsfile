@@ -18,7 +18,7 @@ pipeline {
                         }
                     }
                     //echo "${apiList}"
-                    input message: 'Select the APIs', ok: 'Select', parameters: [choice(choices: apiList, name: 'APIs')]
+                    input message: 'Select the APIs', ok: 'Select', parameters: [choice(choices: apiList, name: 'API')]
                 }
             }
         }
@@ -27,6 +27,7 @@ pipeline {
                 script{
                     //input message: 'Select the APIs', ok: 'Select', parameters: [choice(choices: [apiList], name: 'APIs')]
                     echo "This is the end of the pipeline?"
+                    echo "$API"
                 }
             }
         }
