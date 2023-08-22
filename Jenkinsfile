@@ -1,22 +1,3 @@
-properties([
-    parameters([
-        [$class: 'ChoiceParameter',
-            choiceType: 'PT_SINGLE_SELECT',
-            description: 'Select a choice',
-            filterLength: 1,
-            filterable: true,
-            name: 'Api List',
-            randomName: 'choice-parameter-7601235200970',
-            script: [$class: 'GroovyScript',
-                fallbackScript: [classpath: [], sandbox: false, script: 'return ["ERROR"]'],
-                script: [classpath: [], sandbox: false, 
-                    script: """
-def fileContents = readFile("/var/lib/jenkins/workspace/ure_active-choice-implementation/api-list").readlines()\nreturn fileContents
-                    """
-                ]]]
-    ])
-])
-
 pipeline {
     agent any
     stages{
