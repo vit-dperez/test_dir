@@ -21,7 +21,7 @@ pipeline {
                         }
                     }
                     //echo "${apiList}"
-                    input message: 'Select the APIs', ok: 'Select', parameters: [activeChoiceParameter(choices: apiList, name: 'API')]
+                    input message: 'Select the APIs', ok: 'Select', parameters: [choiceParam(choices: apiList, name: 'API')]
                     echo "$API"
                     env.API = apiList
                 }
