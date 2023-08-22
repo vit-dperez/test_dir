@@ -24,7 +24,7 @@ pipeline {
         stage('Select the APIs'){
             steps{
                 script{
-                    input message: 'Select the APIs', ok: 'Select', parameters: [choice(choices: [$apiList], name: 'APIs')]
+                    input message: 'Select the APIs', ok: 'Select', parameters: [choice(choices: [${apiList}], name: 'APIs')]
                 }
             }
         }
