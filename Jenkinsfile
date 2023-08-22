@@ -22,7 +22,7 @@ pipeline {
                     }
                     //echo "${apiList}"
                     input message: 'Select the APIs', ok: 'Select', parameters: [choiceParam(choices: apiList, name: 'API')]
-                    echo "${params.API}"
+                    echo "$params.API"
                     env.API = apiList
                 }
             }
