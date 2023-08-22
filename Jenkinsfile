@@ -21,5 +21,10 @@ pipeline {
                 }
             }
         }
+        stage('Select the APIs'){
+            steps{
+                input message: 'Select the APIs', ok: 'Select', parameters: [choice(choices: ${apiList}, name: 'APIs')]
+            }
+        }
     }
 }
