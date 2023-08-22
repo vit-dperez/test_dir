@@ -17,14 +17,15 @@ pipeline {
                             apiList.add(f.name)
                         }
                     }
-                     echo "${apiList}"
+                    //echo "${apiList}"
+                    input message: 'Select the APIs', ok: 'Select', parameters: [choice(choices: [apiList], name: 'APIs')]
                 }
             }
         }
         stage('Select the APIs'){
             steps{
                 script{
-                    input message: 'Select the APIs', ok: 'Select', parameters: [choice(choices: [${apiList}], name: 'APIs')]
+                    //input message: 'Select the APIs', ok: 'Select', parameters: [choice(choices: [apiList], name: 'APIs')]
                 }
             }
         }
