@@ -21,7 +21,7 @@ pipeline {
                         }
                     }
                     //echo "${apiList}"
-                    input message: 'Select the APIs', ok: 'Select', parameters: [choice(choices: apiList, name: 'API')]
+                    input message: 'Select the APIs', ok: 'Select', parameters: [editableChoice(choices: apiList, name: 'API')]
                     env.API = apiList
                 }
             }
