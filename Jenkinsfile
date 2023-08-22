@@ -15,17 +15,10 @@ pipeline {
                     files.each{ f ->
                         if(f.directory){
                             apiList.add(f.name)
-                            //writeFile file: 'api-list', text: "${f.name}"
                         }
                     }
-                    // echo "${apiList}"
-                    writeFile file: 'api-list', text: "${apiList}"
+                     echo "${apiList}"
                 }
-            }
-        }
-        stage('Archive the file'){
-            steps{
-                archiveArtifacts artifacts: 'api-list', followSymlinks: false
             }
         }
     }
