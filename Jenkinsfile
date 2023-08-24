@@ -21,7 +21,7 @@ pipeline {
                         }
                     }
                     //echo "${apiList}"
-                    env.API = input message: 'Select the APIs', ok: 'Select', parameters: [extendedChoice(choices: apiList, name: 'API',type: 'PT_MULTI_SELECT', multiSelectDelimiter: '\n')]
+                    env.API = input message: 'Select the APIs', ok: 'Select', parameters: [extendedChoice(value: apiList, name: 'API',type: 'PT_MULTI_SELECT', multiSelectDelimiter: '\n')]
                 }
             }
         }
