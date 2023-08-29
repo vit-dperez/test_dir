@@ -9,7 +9,7 @@ pipeline {
         stage('Populate parameters'){
             environment {
                 API = ''
-                apiList = []
+                def apiList = []
             }
             steps{
                 script{
