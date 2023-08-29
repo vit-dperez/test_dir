@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Populate parameters'){
             environment {
-                API = ''
+                API = []
             }
             steps{
                 script{
@@ -21,7 +21,7 @@ pipeline {
                         }
                     }
                     //echo "${apiList}"
-                    env.API = input message: 'Select the APIs', ok: 'Select', parameters: [extendedChoice(value: "${apiList}", name: 'API',type: 'PT_MULTI_SELECT', multiSelectDelimiter: '\n')]
+                    env.API = input message: 'Select the APIs', ok: 'Select', parameters: [extendedChoice(value: "${apiList}", name: 'APIs',type: 'PT_MULTI_SELECT', multiSelectDelimiter: '\n')]
                 }
             }
         }
@@ -29,7 +29,7 @@ pipeline {
             steps{
                 script{
                     //input message: 'Select the APIs', ok: 'Select', parameters: [choice(choices: [apiList], name: 'APIs')]
-                    echo "This is the end of the pipeline?"
+                    echo "Is this the end of the pipeline?"
                     echo "${env.API}"
                 }
             }
