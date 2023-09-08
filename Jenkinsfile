@@ -1,3 +1,17 @@
+def paramsListEnd= [
+        gitParameter(
+            branchFilter: 'origin/(.*)', //filtering this common part of all branch names
+            defaultValue: 'master', 
+            name: 'BRANCH', 
+            type: 'PT_BRANCH'
+        )
+    ]
+
+properties([
+    parameters(
+       paramsListEnd)
+])
+
 pipeline {
     agent any
     stages{
